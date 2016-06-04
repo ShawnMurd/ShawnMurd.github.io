@@ -1,23 +1,32 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Weather Page</title>
+	</head>
+	<body>
+		<div>
+			<h1>Local Weather Page (East Hartford, CT)</h1>
+		</div>
+		<div>
+			<h2>Current Conditions</h2>
+			<p><a href=http://radar.weather.gov/Conus/full_loop.php>NWS Radar</a></p>
+			<p><a href=http://www.wpc.ncep.noaa.gov/html/sfc-zoom.php>WPC Surface Analysis</a></p>
+			<p><a href=http://forecast.weather.gov/MapClick.php?lat=41.7823&lon=-72.612#.V1HE5JErLIU>NWS Current Observations</a></p>
+			<p><a href=http://mp1.met.psu.edu/~fxg1/SAT_US/recentvis.html>PSU E-Wall Visible Satellite</a></p>
+		</div>
+		<div>
+			<h2>Forecasts</h2>
+			<p><a href=http://www.meteor.iastate.edu/~ckarsten/bufkit/image_loader.phtml?site=khfd&nam=on&nam_mos=on&namm=on&gfs_mos=on&gfs=on&gfsm_mos=on&gfsm=on&nws=on&rap=on&obs=on&nam4km=on&con=on&ratio=11&max_t=on&cobb=on&compaction=on&mean_mt=on&max_mt=on&mean=on>Iowa State Model Comparison</a></p>
+			<p><a href=http://mp1.met.psu.edu/~fxg1/ewall.html>PSU E-Wall</a></p>
+			<p><a href=http://www.pivotalweather.com/model.php>Pivotal Weather Model Output</a></p>
+			<h5>Ensemble Forecasts</h5>
+			<p><a href=http://www.spc.noaa.gov/exper/sref/srefplumes/>SREF Plumes</a></p>
+			<p><a href=http://www.emc.ncep.noaa.gov/mmb/cguastini/gefs/EMCGEFSplumes.html>GEFS Plumes</a></p>
+			<h5>Other Forecasts</h5>
+			<p><a href=https://weather.com/weather/today/l/06108:4:US>Weather Channel</a></p>
+			<p><a href=http://www.accuweather.com/en/us/east-hartford-ct/06108/weather-forecast/332268>AccuWeather</a></p>
+			<p><a href=http://www.nbcconnecticut.com/weather/?zipCode=06108>NBC Connecticut</a></p>
+		</div>
+	</body>
+</html>
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
