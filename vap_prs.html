@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <script type="text/javascript" src="meteo_functions.js"></script>
+		<title>VaporPressure</title>
+	</head>
+
+	<body>
+		
+		<!--Header for page-->
+		<div class="header">
+			<h1 class="title">Meteorology Tools</h1>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/thermo.html><p class="menu">Thermodynamics</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/vap_prs.html><p class="menu">Vapor Pressure</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/moisture.html><p class="menu">Moisture</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/temperature.html><p class="menu">Temperature</p></a>
+		</div>
+	
+		<!--Thermodynamic Calculator Content-->
+		<div class="content">
+            
+        <!--Left Column-->
+		    <div class="left">
+		    </div>
+		
+		    <!--Right Column-->
+		    <div class="right">
+		    </div>
+            
+            		<br />
+			<h2 class="cont_title">Vapor Pressure Calculator</h2>
+            <p class="cont_subtitle">Calculates the equilibrium vapor pressure using the Clausius-Clapeyron Equation</p>
+			<div class="inputs">
+				<h3 class="sub_title">Inputs:</h3>
+
+				Temperature:
+				<input type="number" id="temp">
+				<input type="radio" name="tempunit" value="degF">
+				Fahrenheit
+				<input type="radio" checked name="tempunit" value="degC">
+				Celsius
+				<input type="radio" name="tempunit" value="degK">
+				Kelvin
+
+			</div>
+
+			<div class="out_format">
+				<h3 class="sub_title">Output Format:</h3>
+
+				Pressure:
+				<input type="radio" checked name="prsout" value="mb">
+				Millibars (hectopascals)
+				<input type="radio" name="prsout" value="inHg">
+				Inches of Mercury
+				<input type="radio" name="prsout" value="mmHg">
+				Millimeters of Mercury
+			</div>
+            
+            		<div class="button">
+                		<input type="button" onclick="vap_prs()" value="Calculate">
+            		</div>
+
+			<div class="output">
+				<h3 class="sub_title">Output:</h3>
+				<p class="out_sp">Equilibrium Vapor Pressure:<span id="evp"></span></p>
+			</div>
+		</div>
+
+		<!--footer-->
+		<div class="footer">
+			<p class="contact">Site developed and maintained by Shawn Murdzek</p>
+			<p class="contact">Questions? Comments? Email Shawn at sfm5282@psu.edu</p>
+		</div>
+
+	</body>
+
+</html>
