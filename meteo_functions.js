@@ -229,8 +229,6 @@ function thermo() {
         // Find P_lcl using Poisson's Relations
         Plcl = Math.pow((Tlcl/temp), (cp/Rd)) * prs;
     }
-    console.log("LCL Pressure = "+Plcl);
-    console.log("LCL Temperature = "+Tlcl);
     
     // Calculate Potential Temperature
     var thet = temp * Math.pow((100000.0/prs), (Rd/cp));
@@ -282,11 +280,6 @@ function thermo() {
                  thet_wb_low);
     }
     thet_wb = 0.5*(thet_wb_low + thet_wb_up);
-    
-    console.log("Theta = "+thet);
-    console.log("Theta_e = "+thet_e);
-    console.log("Theta_es = "+thet_es);
-    console.log("Theta_wb = "+thet_wb);
     
     // Calculate Virtual Temperature and Equivalent Temperature
     var T_v = temp * (1 + 0.61*w);
@@ -589,11 +582,3 @@ function DewtoMix4() {
     // Write dew point to page
     document.getElementById("mix_out4").innerHTML = " "+mix.toFixed(2);
 }
-
-/* For next time:
-
-Debug the four moisture scripts
-
-Upload site to GitHub
-
-Buy domain name */
