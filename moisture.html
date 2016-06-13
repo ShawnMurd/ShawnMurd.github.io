@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <script type="text/javascript" src="meteo_functions.js"></script>
+		<title>Moisture</title>
+	</head>
+
+	<body>
+		
+		<!--Header for page-->
+		<div class="header">
+			<h1 class="title">Meteorology Tools</h1>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/thermo.html><p class="menu">Thermodynamics</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/vap_prs.html><p class="menu">Vapor Pressure</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/moisture.html><p class="menu">Moisture</p></a>
+			<a href=C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/temperature.html><p class="menu">Temperature</p></a>
+		</div>
+	
+		<!--Thermodynamic Calculator Content-->
+		<div class="content">
+            
+            	    <!--Left Column-->
+		    <div class="left">
+		    </div>
+		
+		    <!--Right Column-->
+		    <div class="right">
+		    </div>
+            
+            		<br />
+			<h2 class="cont_title">Moisture Measurement Convsersion Calculator</h2>
+			<div class="mois_sect">
+				<h3 class="sub_title">Relative Humidity to Dew Point</h3>
+
+				Relative Humidity (%):
+                <input type="number" id="rh_in1">
+                
+                <br />Temperature:
+                <input type="number" id="temp_in1">
+                <input type="radio" name="temp1" value="degF">
+                Fahrenheit
+                <input type="radio" name="temp1" value="degC">
+                Celsius
+                <input type="radio" name="temp1" value="degK">
+                Kelvin
+                
+                <br />Dew Point Units:
+                <input type="radio" name="dew1" value="degF">
+                Fahrenheit
+                <input type="radio" name="dew1" value="degC">
+                Celsius
+                <input type="radio" name="dew1" value="degK">
+                Kelvin
+                
+                <br /><input type="button" onclick="RHtoDew1()" value="Calculate">
+                <p class="mois_out">Dew Point:<span id="dew_out1"></span></p> 
+			</div>
+            
+           <div class="mois_sect">
+				<h3 class="sub_title">Dew Point to Relative Humidity</h3>
+
+				Dew Point:
+                <input type="number" id="dew_in2">
+                <input type="radio" name="dew2" value="degF">
+                Fahrenheit
+                <input type="radio" name="dew2" value="degC">
+                Celsius
+                <input type="radio" name="dew2" value="degK">
+                Kelvin
+                
+                <br />Temperature:
+                <input type="number" id="temp_in2">
+                <input type="radio" name="temp2" value="degF">
+                Fahrenheit
+                <input type="radio" name="temp2" value="degC">
+                Celsius
+                <input type="radio" name="temp2" value="degK">
+                Kelvin
+                
+                <br /><input type="button" onclick="DewtoRH2()" value="Calculate">
+                <p class="mois_out">Relative Humidity (%):<span id="rh_out2"></span></p> 
+			</div>
+            
+            <div class="mois_sect">
+				<h3 class="sub_title">Mixing Ratio to Dew Point</h3>
+
+				Mixing Ratio (g/kg):
+                <input type="number" id="mix_in3">
+                
+                <br />Pressure:
+                <input type="number" id="prs_in3">
+                <input type="radio" name="prs3" value="mb">
+                Millibars
+                <input type="radio" name="prs3" value="inHg">
+                Inches of Mercury
+                <input type="radio" name="prs3" value="mmHg">
+                Millimeters of Mercury
+                
+                <br />Dew Point Units:
+                <input type="radio" name="dew3" value="degF">
+                Fahrenheit
+                <input type="radio" name="dew3" value="degC">
+                Celsius
+                <input type="radio" name="dew3" value="degK">
+                Kelvin
+                
+                <br /><input type="button" onclick="MixtoDew3()" value="Calculate">
+                <p class="mois_out">Dew Point:<span id="dew_out3"></span></p> 
+			</div>
+            
+            <div class="mois_sect">
+				<h3 class="sub_title">Dew Point to Mixing Ratio</h3>
+
+				Dew Point:
+                <input type="number" id="dew_in4">
+                <input type="radio" name="dew4" value="degF">
+                Fahrenheit
+                <input type="radio" name="dew4" value="degC">
+                Celsius
+                <input type="radio" name="dew4" value="degK">
+                Kelvin
+                
+                <br />Pressure:
+                <input type="number" id="prs_in4">
+                <input type="radio" name="prs4" value="mb">
+                Millibars
+                <input type="radio" name="prs4" value="inHg">
+                Inches of Mercury
+                <input type="radio" name="prs4" value="mmHg">
+                Millimeters of Mercury
+                
+                <br /><input type="button" onclick="DewtoMix4()" value="Calculate">
+                <p class="mois_out">Mixing Ratio (g/kg):<span id="mix_out4"></span></p> 
+			</div>
+		</div>
+
+		<!--footer-->
+		<div class="footer">
+			<p class="contact">Site developed and maintained by Shawn Murdzek</p>
+			<p class="contact">Questions? Comments? Email Shawn at sfm5282@psu.edu</p>
+		</div>
+
+	</body>
+
+</html>
