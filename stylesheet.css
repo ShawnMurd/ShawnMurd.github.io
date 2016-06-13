@@ -1,0 +1,83 @@
+.header {
+	height: 6.5em;
+    	width: 83em;
+	background-color: #a4add3;
+	border-radius: 1em;
+	font-family: Georgia;
+	text-align: center;
+}
+
+.title {
+	font-size: 2em;
+	text-align: center;
+	color: #323232;
+	text-decoration: underline;
+	margin-bottom: 0em;
+	padding-top: 0.2em;
+	margin-top: 0em;
+}
+
+.menu {
+	font-size: 1.5em;
+	border-radius: 0.25em;
+	font-color: #323232;
+	border: 0.05em solid #323232;
+	display: inline-block;
+	text-align: center;
+	width: 10em;
+}
+
+.left {
+	height: 45em;
+	width: 6em;
+	background-color: #fbed63;
+	border-radius: 1em;
+	float: left;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-right: 0.5em;
+}
+
+.right {
+	height: 45em;
+	width: 6em;
+	background-color: #fbed63;
+	border-radius: 1em;
+	float: right;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 0.5em;
+}
+
+.content {
+    	margin-top: 0em;
+    	width: 83em;
+}
+
+.footer {
+	height: 4.25em;
+	clear: both;
+	text-align: center;
+	border-top: solid #323232;
+}
+
+.cont_title {
+	text-align: center;
+}
+
+.cont_subtitle {
+    text-align: center;
+}
+
+.sub_title {
+	margin-bottom: 0.2em;
+}
+
+.out_sp {
+	margin-bottom: -0.8em;
+	margin-top: 0.1em;
+}
+
+.out {
+	margin-bottom: -0.8em;
+}
