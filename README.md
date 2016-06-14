@@ -6,7 +6,11 @@ The goal is not for the website to look pretty, rather the goal is for the websi
 calculate a meteorological quantity.
 
 Notes for Future Development:
+
 ~Fix menu so links that are clicked are not highlighted purple and so that the link responds when the cursor is hovered over it (use jQuery)
+
 ~Possibly add scripts for dynamic meteorolgical quantities (vorticity? divergence?)
+
 ~Add downloads for Python code that performs the same tasks
+
 ~Allow users to copy radiosonde data and have website plot a Skew-T
