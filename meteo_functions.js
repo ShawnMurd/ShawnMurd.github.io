@@ -310,7 +310,7 @@ function thermo() {
     // Make conversions for Output Format
     if (TUnitOut === "degF") {
         thet = KtoF(thet);
-        thet_e = KtoF(thet);
+        thet_e = KtoF(thet_e);
         thet_es = KtoF(thet_es);
         thet_wb = KtoF(thet_wb);
         Tlcl = KtoF(Tlcl);
