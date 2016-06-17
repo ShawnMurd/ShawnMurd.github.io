@@ -10,6 +10,8 @@ Notes for Future Development:
 
 ~Fix menu so links that are clicked are not highlighted purple and so that the link responds when the cursor is hovered over it (use jQuery)
 
+~Fix mixing ratio units on Thermodynamics page from kg/kg to g/kg
+
 ~Possibly add scripts for dynamic meteorolgical quantities (vorticity? divergence?)
 
 ~Add downloads for Python code that performs the same tasks
