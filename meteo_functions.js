@@ -174,7 +174,7 @@ function thermo() {
         mois = RHtoDewK(temp, mois);
     }
     else if (MUnitIn === "w") {
-        mois = MixToTd(mois * 1000.0, prs);
+        mois = MixToTd(mois / 1000.0, prs);
     }
     
     // Define Local Variables
