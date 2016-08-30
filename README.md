@@ -14,4 +14,4 @@ Notes for Future Development:
 
 ~Add downloads for Python code that performs the same tasks
 
-~Allow users to copy radiosonde data and have website plot a Skew-T
+~Allow users to copy radiosonde data and have website plot a Skew-T (use Canvas for scatterplot)
