@@ -130,9 +130,9 @@ function thermo() {
     then calculates the potential temperature, equivalent potential temperature
     saturated equivalent potential temperature, wet-bulb potential temperature,
     LCL pressure, LCL temperature, mixing ratio, relative humidity, dew point,
-    virtual temperature, and equivalent temperature. Essentially, this is a
-    combination of several of the scripts found in the thermo_scripts.py python
-    file.
+    virtual temperature, equivalent temperature, and density. Essentially, this 
+    is a combination of several of the scripts found in the thermo_scripts.py 
+    python file.
     */
     
     // Obtain input values
@@ -307,6 +307,9 @@ function thermo() {
     }
     var T_wb = 0.5*(T_wb_low + T_wb_up);
     
+    // Calculate Density using Ideal Gas Law and Virtual Temperature
+    var rho = (prs) / (Rd * T_v);
+    
     // Make conversions for Output Format
     if (TUnitOut === "degF") {
         thet = KtoF(thet);
@@ -353,6 +356,7 @@ function thermo() {
     document.getElementById("T_v").innerHTML = " "+T_v.toFixed(2);
     document.getElementById("T_e").innerHTML = " "+T_e.toFixed(2);
     document.getElementById("wb").innerHTML = " "+T_wb.toFixed(2);
+    document.getElementById("rho").innerHTML = " "+rho.toFixed(3);
 }
 
 
