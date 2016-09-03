@@ -3,6 +3,7 @@ An assortment of scripts in JavaScript using the jQuery API to increase
 the visual appeal of the meteotools.com website.
 */
 
+// -----------------------------------------------------------------------------------------------------------
 
 // Scripts for the buttons on the menu:
 
@@ -13,6 +14,15 @@ function button() {
         },
         function() {
             $(this).css({"color": "black", "background-color": "#a4add3"});
+        }
+    ),
+    // Special jQuery for the menu option that corresponds to the current page
+    $(.menu_current).hover(
+        function() {
+            $(this).css({"color": "black", "background-color": "#a4add3", "cursor": "pointer"});
+        },
+        function() {
+            $(this).css({"color": "#a4add3", "background-color": "#cd2c31"});
         }
     ),
     $(#thermo).click(
@@ -37,4 +47,7 @@ function button() {
     )
 };
 
+// Execute the command when the page is loaded
 $(document).ready(button);
+
+// ------------------------------------------------------------------------------------------------------------
