@@ -27,6 +27,16 @@
 	width: 10em;
 }
 
+.current_menu {
+	font-size: 1.5em;
+	border-radius: 0.25em;
+	font-color: #323232;
+	border: 0.05em solid #323232;
+	display: inline-block;
+	text-align: center;
+	width: 10em;
+}
+
 .left {
 	height: 45em;
 	width: 6em;
