@@ -15,3 +15,5 @@ Notes for Future Development:
 ~Add downloads for Python code that performs the same tasks
 
 ~Allow users to copy radiosonde data and have website plot a Skew-T (use Canvas for scatterplot)
+
+~Make equations more accurate by accounting for the change in the latent heat of vaporization with temperature
