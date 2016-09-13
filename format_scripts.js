@@ -27,22 +27,22 @@ function button() {
     ),
     $('.current_menu').click(
         function() {
-            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery/index.html";
+            window.location.href="http://ShawnMurd.github.io";
         }
     ),
     $('#vap_prs').click(
         function() {
-            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//vap_prs.html";
+            window.location.href="http://ShawnMurd.github.io/vap_prs.html";
         }
     ),
     $('#moisture').click(
         function() {
-            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//moisture.html";
+            window.location.href="http://ShawnMurd.github.io/moisture.html";
         }
     ),
     $('#temperature').click(
         function() {
-            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//temperature.html";
+            window.location.href="http://ShawnMurd.github.io/temperature.html";
         }
     )
 };
