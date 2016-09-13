@@ -17,12 +17,9 @@ function button() {
         }
     ),
     // Special jQuery for the menu option that corresponds to the current page
-    $('.menu_current').hover(
+    $('.current_menu').hover(
         function() {
-            $(this).css({"color": "black", "background-color": "#a4add3", "cursor": "pointer"});
-        },
-        function() {
-            $(this).css({"color": "#a4add3", "background-color": "#cd2c31"});
+            $(this).css({"cursor": "pointer"});
         }
     ),
     $('#thermo_menu').click(
