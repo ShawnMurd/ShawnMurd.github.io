@@ -186,7 +186,7 @@ function thermo() {
     
     // Check to make sure that dewpoint is less than or equal to temperature:
     if (temp < mois) {
-    	alert("Dew point is greater than the temperature.\n Enter a different temperature or moisture measure.");
+    	alert("Dew point is greater than the temperature.\nEnter a different temperature or moisture measure.");
     	return;
     }
     
