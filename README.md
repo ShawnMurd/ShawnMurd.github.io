@@ -18,4 +18,4 @@ Notes for Future Development:
 
 ~Make equations more accurate by accounting for the change in the latent heat of vaporization with temperature
 
-~BUG: Calculator does not work if the mixing ratio is 10g/kg or larger
+~BUG: Calculator does not work if the mixing ratio is 10g/kg or larger (resolved, but need additional testing)
