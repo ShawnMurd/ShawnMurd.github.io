@@ -17,5 +17,3 @@ Notes for Future Development:
 ~Allow users to copy radiosonde data and have website plot a Skew-T (use Canvas for scatterplot)
 
 ~Make equations more accurate by accounting for the change in the latent heat of vaporization with temperature
-
-~BUG: Calculator does not work if the mixing ratio is 10g/kg or larger (resolved, but need additional testing)
