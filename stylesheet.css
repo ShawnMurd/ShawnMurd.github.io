@@ -1,6 +1,6 @@
 .header {
 	height: 6.5em;
-    	width: 83em;
+    width: 83em;
 	background-color: #a4add3;
 	border-radius: 1em;
 	font-family: Georgia;
@@ -20,7 +20,7 @@
 .menu {
 	font-size: 1.5em;
 	border-radius: 0.25em;
-	font-color: #323232;
+	color: #323232;
 	border: 0.05em solid #323232;
 	display: inline-block;
 	text-align: center;
@@ -30,7 +30,8 @@
 .current_menu {
 	font-size: 1.5em;
 	border-radius: 0.25em;
-	font-color: #323232;
+    background-color: #cb2c31;
+	color: #a4add3;
 	border: 0.05em solid #323232;
 	display: inline-block;
 	text-align: center;

@@ -8,7 +8,7 @@ the visual appeal of the meteotools.com website.
 // Scripts for the buttons on the menu:
 
 function button() {
-    $(.menu).hover(
+    $('.menu').hover(
         function() {
             $(this).css({"color": "#a4add3", "background-color": "#cb2c31", "cursor": "pointer"});
         },
@@ -17,7 +17,7 @@ function button() {
         }
     ),
     // Special jQuery for the menu option that corresponds to the current page
-    $(.menu_current).hover(
+    $('#thermo').hover(
         function() {
             $(this).css({"color": "black", "background-color": "#a4add3", "cursor": "pointer"});
         },
@@ -25,24 +25,24 @@ function button() {
             $(this).css({"color": "#a4add3", "background-color": "#cd2c31"});
         }
     ),
-    $(#thermo).click(
+    $('.current_menu').click(
         function() {
-            window.location.href="http://meteotools.com";
+            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery/index.html";
         }
     ),
-    $(#vap_prs).click(
+    $('#vap_prs').click(
         function() {
-            window.location.href="http://meteotools.com/vap_prs.html";
+            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//vap_prs.html";
         }
     ),
-    $(#moisture).click(
+    $('#moisture').click(
         function() {
-            window.location.href="http://meteotools.com/moisture.html";
+            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//moisture.html";
         }
     ),
-    $(#temperature).click(
+    $('#temperature').click(
         function() {
-            window.location.href="http://meteotools.com/temperature.html";
+            window.location.href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery//temperature.html";
         }
     )
 };

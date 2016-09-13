@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link type="text/css" rel="stylesheet" href="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery/stylesheet.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery/meteo_functions.js"></script>
+        <script type="text/javascript" src="C:/Users/Shawn/Documents/Python_Stuff/Meteo_tools_page/ShawnMurd.github.io-Integrate_jQuery/format_scripts.js"></script>
+		<title>Thermodynamics</title>
+	</head>
+
+	<body>
+		
+		<!--Header for page-->
+		<div class="header">
+			<h1 class="title">Meteorology Tools</h1>
+			<p class="current_menu" id="thermo">Thermodynamics</p>
+			<p class="menu" id="vap_prs">Vapor Pressure</p>
+			<p class="menu" id="moisture">Moisture</p>
+			<p class="menu" id="temperature">Temperature</p>
+		</div>
+	
+		<!--Thermodynamic Calculator Content-->
+		<div class="content">
+            
+            	    <!--Left Column-->
+		    <div class="left">
+		    </div>
+		
+		    <!--Right Column-->
+		    <div class="right">
+		    </div>
+            
+            		<br />
+			<h2 class="cont_title">Thermodynamic Calculator</h2>
+			<div class="inputs">
+				<h3 class="sub_title">Inputs:</h3>
+
+				Temperature:
+				<input type="number" id="temp">
+				<input type="radio" name="tempunit" value="degF">
+				Fahrenheit
+				<input type="radio" checked name="tempunit" value="degC">
+				Celsius
+				<input type="radio" name="tempunit" value="degK">
+				Kelvin
+
+				<br />Pressure:
+				<input type="number" id="prs">
+				<input type="radio" checked name="prsunit" value="mb">
+				Millibars (hectopascals)
+				<input type="radio" name="prsunit" value="inHg">
+				Inches of Mercury
+				<input type="radio" name="prsunit" value="mmHg">
+				Millimeters of Mercury
+
+				<br />Moisture Measure:
+				<input type="number" id="moisture"> 
+				<input type="radio" name="moisunit" value="dewF">
+				Dew Point (deg F)
+				<input type="radio" checked name="moisunit" value="dewC">
+				Dew Point (deg C)
+				<input type="radio" name="moisunit" value="dewK">
+				Dew Point (K)
+				<input type="radio" name="moisunit" value="RH">
+				Relative Humidity (decimal)
+				<input type="radio" name="moisunit" value="w">
+				Mixing Ratio (g/kg)
+			</div>
+
+			<div class="out_format">
+				<h3 class="sub_title">Output Format:</h3>
+
+				Temperatures:
+				<input type="radio" name="tempout" value="degF">
+				Fahrenheit
+				<input type="radio" checked name="tempout" value="degC">
+				Celsius
+				<input type="radio" name="tempout" value="degK">
+				Kelvin <br />
+
+				Pressures:
+				<input type="radio" checked name="prsout" value="mb">
+				Millibars (hectopascals)
+				<input type="radio" name="prsout" value="inHg">
+				Inches of Mercury
+				<input type="radio" name="prsout" value="mmHg">
+				Millimeters of Mercury
+			</div>
+            
+            		<div class="button">
+                		<input type="button" onclick="thermo()" value="Calculate">
+            		</div>
+
+			<div class="output">
+				<h3 class="sub_title">Outputs:</h3>
+				<p class="out_sp">Potential Temperature:<span id="theta"></span></p>
+				<p class="out">Equivalent Potential Temperature:<span id="theta_e"></span></p>
+				<p class="out">Saturated Equivalent Potential Temperature:<span id="theta_es"></span></p>
+				<p class="out">Wet-Bulb Potential Temperature:<span id="theta_wb"></span></p>
+				<br />
+				<p class="out">Lifted Condensation Level Pressure:<span id="lcl_p"></span></p>
+				<p class="out">Lifted Condensation Level Temperature:<span id="lcl_t"></span></p>
+				<br />
+				<p class="out">Mixing Ratio (g/kg):<span id="mix"></span></p>
+				<p class="out">Relative Humidity (%):<span id="rh"></span></p>
+				<p class="out">Dew Point:<span id="dew"></span></p>
+				<br />
+				<p class="out">Virtual Temperature:<span id="T_v"></span></p>
+				<p class="out">Equivalent Temperature:<span id="T_e"></span></p>
+                		<p class="out">Wet Bulb Temperature:<span id="wb"></span></p>
+                		<br />
+                		<p class="out">Density (kg/m^3):<span id="rho"></span></p>
+			</div>
+		</div>
+
+		<!--footer-->
+		<div class="footer">
+			<p class="contact">Site developed and maintained by Shawn Murdzek</p>
+			<p class="contact">Questions? Comments? Email Shawn at sfm5282@psu.edu</p>
+		</div>
+
+	</body>
+
+</html>
