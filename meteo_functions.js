@@ -184,6 +184,12 @@ function thermo() {
     var lv = 2.5 * Math.pow(10, 6);
     var cw = 4218.0;
     
+    // Check to make sure that dewpoint is less than or equal to temperature:
+    if (temp < mois) {
+    	alert("Dew point is greater than the temperature.\n Enter a different temperature or moisture measure.");
+    	return;
+    }
+    
     // Calculate LCL Pressure and Temperature
     // Check for condition where T = Td
     if (temp === mois) {
