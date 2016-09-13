@@ -17,7 +17,7 @@ function button() {
         }
     ),
     // Special jQuery for the menu option that corresponds to the current page
-    $('#thermo_menu').hover(
+    $('.menu_current').hover(
         function() {
             $(this).css({"color": "black", "background-color": "#a4add3", "cursor": "pointer"});
         },
@@ -25,7 +25,7 @@ function button() {
             $(this).css({"color": "#a4add3", "background-color": "#cd2c31"});
         }
     ),
-    $('.current_menu').click(
+    $('#thermo_menu').click(
         function() {
             window.location.href="http://ShawnMurd.github.io";
         }
