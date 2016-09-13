@@ -17,7 +17,7 @@ function button() {
         }
     ),
     // Special jQuery for the menu option that corresponds to the current page
-    $('#thermo').hover(
+    $('#thermo_menu').hover(
         function() {
             $(this).css({"color": "black", "background-color": "#a4add3", "cursor": "pointer"});
         },
@@ -30,17 +30,17 @@ function button() {
             window.location.href="http://ShawnMurd.github.io";
         }
     ),
-    $('#vap_prs').click(
+    $('#vap_prs_menu').click(
         function() {
             window.location.href="http://ShawnMurd.github.io/vap_prs.html";
         }
     ),
-    $('#moisture').click(
+    $('#moisture_menu').click(
         function() {
             window.location.href="http://ShawnMurd.github.io/moisture.html";
         }
     ),
-    $('#temperature').click(
+    $('#temperature_menu').click(
         function() {
             window.location.href="http://ShawnMurd.github.io/temperature.html";
         }
