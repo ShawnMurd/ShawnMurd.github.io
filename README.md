@@ -8,7 +8,9 @@ calculate a meteorological quantity.
 
 Notes for Future Development:
 
-~Fix menu so links that are clicked are not highlighted purple and so that the link responds when the cursor is hovered over it (use jQuery)
+~More jQuery magic?
+
+~Create alerts the appear when user puts in crazy values (in order to prevent infinite loops)
 
 ~Possibly add scripts for dynamic meteorolgical quantities (vorticity? divergence?)
 
