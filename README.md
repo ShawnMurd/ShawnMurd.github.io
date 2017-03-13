@@ -10,7 +10,7 @@ Notes for Future Development:
 
 ~More jQuery magic?
 
-~Create alerts the appear when user puts in crazy values (in order to prevent infinite loops)
+~Create alerts that appear when the user inputs crazy values (in order to prevent infinite loops)
 
 ~Possibly add scripts for dynamic meteorolgical quantities (vorticity? divergence?)
 
@@ -20,4 +20,4 @@ Notes for Future Development:
 
 ~Make equations more accurate by accounting for the change in the latent heat of vaporization with temperature
 
-~Add support for moisture measures as vapor pressures
+~Include vapor pressure as a moisture measurement on the thermodyanmics page
