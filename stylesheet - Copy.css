@@ -1,5 +1,6 @@
 .header {
-	height: 15%;
+	height: 6.5em;
+    width: 83em;
 	background-color: #a4add3;
 	border-radius: 1em;
 	font-family: Georgia;
@@ -38,9 +39,8 @@
 }
 
 .left {
-	min-height: 45em;
-	height: auto;
-	width: 8%;
+	height: 45em;
+	width: 6em;
 	background-color: #fbed63;
 	border-radius: 1em;
 	float: left;
@@ -50,9 +50,8 @@
 }
 
 .right {
-	min-height: 45em;
-	height: auto;
-	width: 8%;
+	height: 45em;
+	width: 6em;
 	background-color: #fbed63;
 	border-radius: 1em;
 	float: right;
@@ -62,8 +61,8 @@
 }
 
 .content {
-		margin-top: 0em;
-		margin-bottom: 1em;
+    	margin-top: 0em;
+    	width: 83em;
 }
 
 .footer {
