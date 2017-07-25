@@ -39,6 +39,27 @@ function MbtommHg(prs) {
 
 // Moisture-related scripts:
 
+function l_v(T) {
+    /*
+    Function to calculate the latent heat of vaporization at some temperature T
+    using equation 5.64 in Bohren's "Atmospheric Thermodynamics". This equation
+    uses a linear approximation to account for the dependence of the latent heat
+    of vaporization on temperature.
+    Inputs:
+        T = Temperature (K)
+    Outputs:
+        lv = Latent heat of vaporization (J/kg)
+    */
+
+    var l_v0 = 2.501 * (Math.pow(10, 6));
+    var c_pv = 1850.0;
+    var c_w = 4218.0;
+
+    lv = l_v0 + (c_pv - c_w) * (T - 273.15);
+
+    return lv;
+}
+
 function e_s(T) {
 	/*
 	Calculates the equilibrium vapor pressure (Pa) at temperature T (K) using
@@ -52,9 +73,9 @@ function e_s(T) {
   	   	Rv = Gas constant for water vapor (J/kg*K)
 	*/
 	
-	var lv = 2.5 * (Math.pow(10, 6));
 	var Rv = 461.5;
-	var evp = 611*Math.exp((lv/Rv)*((1/273.15) - (1/T)));
+    var evp = 611*Math.exp((l_v(T)/Rv)*((1/273.15) - (1/T)));
+    
 	return evp;
 }
 
@@ -72,11 +93,11 @@ function RHtoDewK(T, RH) {
   	    e = Vapor pressure (Pa)
 	*/
   
-	var lv = 2.5 * (Math.pow(10, 6));
 	var Rv = 461.5;
 	var e = RH * e_s(T);
-	var Td = 1/(1/273.15 - (Rv/lv)*Math.log(e/611.0));
-	return Td;
+	var Td = 1/(1/273.15 - (Rv/l_v(T))*Math.log(e/611.0));
+
+    return Td;
 }
 
 function MixToTd(mix, P) {
@@ -95,11 +116,11 @@ function MixToTd(mix, P) {
         e = Vapor pressure (Pa)
     */
     
-    var lv = 2.5 * (Math.pow(10, 6));
     var Rv = 461.5;
     var epn = 0.622;
     var e = (mix * P) / (mix + epn);
-    var Td = Td = 1/(1/273.15 - (Rv/lv)*Math.log(e/611.0));
+    var Td = Td = 1/(1/273.15 - (Rv/l_v(T))*Math.log(e/611.0));
+
     return Td;
 }
 
@@ -181,7 +202,6 @@ function thermo() {
     var Rd = 287.04;
     var cp = 1005.0;
     var epn = 0.622;
-    var lv = 2.5 * Math.pow(10, 6);
     var cw = 4218.0;
     
     // Check to make sure that dewpoint is less than or equal to temperature:
@@ -243,53 +263,53 @@ function thermo() {
     var w_s = mixing(Tlcl, Plcl);
     var e_lcl = e_s(Tlcl);
     var thet_d = Tlcl * Math.pow((100000.0 / (Plcl - e_lcl)), (Rd/cp));
-    var thet_e = thet_d * Math.exp((lv * w_s) / (cp * Tlcl));
+    var thet_e = thet_d * Math.exp((l_v(Tlcl) * w_s) / (cp * Tlcl));
     
     // Calculate Saturated Equivalent Potential Temperature
     w = mixing(temp, prs);
     e_lcl = e_s(temp);
-    thet_d = temp * Math.pow((100000.0 / (prs - e_lcl)), (Rd /cp));
-    var thet_es = thet_d * Math.exp((lv * w) / (cp * temp));
+    thet_d = temp * Math.pow((100000.0 / (prs - e_lcl)), (Rd / cp));
+    var thet_es = thet_d * Math.exp((l_v(temp) * w) / (cp * temp));
     
     // Calculate Wet-Bulb Potential Temperature
     w_s = mixing(Tlcl, Plcl);
     e_lcl = e_s(Tlcl);
-    thet_d = Tlcl * Math.pow((100000.0 / (Plcl - e_lcl)), (Rd /cp));
+    thet_d = Tlcl * Math.pow((100000.0 / (Plcl - e_lcl)), (Rd / cp));
 
     // Find thet_wb using method of bisections:
     var thet_wb_up = 100.0;
     var w_s_up = mixing(thet_wb_up, 100000.0);
     w = mixing(mois, prs);
-    upper = (thet_d * Math.exp((lv/cp) * ((w/Tlcl) - (w_s_up/thet_wb_up))) -
-             thet_wb_up);
+    upper = (Math.exp((l_v(Tlcl)/cp) * ((w/Tlcl) - (w_s_up/thet_wb_up))) *
+             thet_d - thet_wb_up);
     var thet_wb_low = thet_d;
     var w_s_low = mixing(thet_wb_low, 100000.0);
-    lower = (thet_d * Math.exp((lv/cp) * ((w/Tlcl) - (w_s_low/thet_wb_low))) -
-             thet_wb_low);
+    lower = (Math.exp((l_v(Tlcl)/cp) * ((w/Tlcl) - (w_s_low/thet_wb_low))) *
+             thet_d - thet_wb_low);
 
     while (Math.abs(Math.abs(upper) - Math.abs(lower)) > 0.000001) {
         var thet_wb_mid = 0.5*(thet_wb_up + thet_wb_low);
         var w_s_mid = mixing(thet_wb_mid, 100000.0);
-        middle = (thet_d * Math.exp((lv/cp) * ((w/Tlcl) - (w_s_mid/thet_wb_mid))) -
-                  thet_wb_mid);
-        if ((upper > 0 && middle < 0) || (upper < 0 && middle > 0)) {
+        mid = (Math.exp((l_v(Tlcl)/cp) * ((w/Tlcl) - (w_s_mid/thet_wb_mid))) *
+               thet_d - thet_wb_mid);
+        if ((upper > 0 && mid < 0) || (upper < 0 && mid > 0)) {
             thet_wb_low = thet_wb_mid;
         }
         else {
             thet_wb_up = thet_wb_mid;
         }
         w_s_up = mixing(thet_wb_up, 100000.0);
-        upper = (thet_d * Math.exp((lv/cp) * ((w/Tlcl) - (w_s_up/thet_wb_up))) -
-                 thet_wb_up);
+        upper = (Math.exp((l_v(Tlcl)/cp) * ((w/Tlcl) - (w_s_up/thet_wb_up))) *
+                 thet_d - thet_wb_up);
         w_s_low = mixing(thet_wb_low, 100000.0);
-        lower = (thet_d * Math.exp((lv/cp) * ((w/Tlcl) - (w_s_low/thet_wb_low))) -
-                 thet_wb_low);
+        lower = (Math.exp((l_v(Tlcl)/cp) * ((w/Tlcl) - (w_s_low/thet_wb_low))) *
+                 thet_d - thet_wb_low);
     }
     thet_wb = 0.5*(thet_wb_low + thet_wb_up);
     
     // Calculate Virtual Temperature and Equivalent Temperature
     var T_v = temp * (1 + 0.61*w);
-    var T_e = temp + ((lv*w) / (cp + w*cw));
+    var T_e = temp + ((l_v(temp)*w) / (cp + w*cw));
     
     // Calculate Relative Humidity
     var rh = (e_s(mois) / e_s(temp)) * 100;
@@ -297,19 +317,19 @@ function thermo() {
     // Calculate Wet Bulb Temperature
     var T_wb_up = temp;
     var T_wb_low = mois;
-    upper = (cp/lv) * (temp - T_wb_up) - mixing(T_wb_up, prs) + w;
-    lower = (cp/lv) * (temp - T_wb_low) - mixing(T_wb_low, prs) + w;
+    upper = (cp/l_v(T_wb_up)) * (temp - T_wb_up) - mixing(T_wb_up, prs) + w;
+    lower = (cp/l_v(T_wb_low)) * (temp - T_wb_low) - mixing(T_wb_low, prs) + w;
     while (Math.abs(Math.abs(upper) - Math.abs(lower)) > 0.000001) {
         var T_wb_mid = 0.5*(T_wb_up + T_wb_low);
-        middle = (cp/lv) * (temp - T_wb_mid) - mixing(T_wb_mid, prs) + w;
+        middle = (cp/l_v(T_wb_mid)) * (temp - T_wb_mid) - mixing(T_wb_mid, prs) + w;
         if ((upper > 0 && middle < 0) || (upper < 0 && middle > 0)) {
             T_wb_low = T_wb_mid;
         }
         else {
             T_wb_up = T_wb_mid;
         }
-        upper = (cp/lv) * (temp - T_wb_up) - mixing(T_wb_up, prs) + w;
-        lower = (cp/lv) * (temp - T_wb_low) - mixing(T_wb_low, prs) + w;
+        upper = (cp/l_v(T_wb_up)) * (temp - T_wb_up) - mixing(T_wb_up, prs) + w;
+        lower = (cp/l_v(T_wb_low)) * (temp - T_wb_low) - mixing(T_wb_low, prs) + w;
     }
     var T_wb = 0.5*(T_wb_low + T_wb_up);
     
@@ -461,9 +481,8 @@ function RHtoDew1() {
     
     // Calculate Dew Point using fact that rh = e_s(Td)/e_s(T)
     var e = (rh / 100.0) * e_s(temp);
-    var lv = 2.5 * Math.pow(10, 6);
     var Rv = 461.5;
-    var dew = 1 / ((1/273.15)-(Rv/lv)*Math.log(e/611));
+    var dew = 1 / ((1/273.15)-(Rv/l_v(temp))*Math.log(e/611));
     
     // Convert Dew Point into desired units
     if (DUnitOut === "degF") {
@@ -537,9 +556,27 @@ function MixtoDew3() {
     var epn = 0.622;
     mix = mix / 1000.0;
     var e = (mix * prs) / (epn + mix);
-    
+
+    // Obtain a rough estimate of Td in order to compute lv, since lv = l_v(Td)
+    var T_up = 400.0;
+    var T_low = 100.0;
+    var e_s_up = e_s(T_up);
+    var e_s_low = e_s(T_low);
+    while ((T_up - T_low) > 10.0) {
+        var T_mid = 0.5 * (T_low + T_up);
+        var e_s_mid = e_s(T_mid);
+        if (((e_s_up - e) > 0) && ((e_s_mid - e) < 0)) {
+            T_low = T_mid;
+        }
+        else {
+            T_up = T_mid;
+        }
+        e_s_up = e_s(T_up);
+        e_s_low = e_s(T_low);
+    }
+    var lv = l_v(0.5 * (T_up + T_low));
+
     // Calculate dew point
-    var lv = 2.5 * Math.pow(10, 6);
     var Rv = 461.5;
     var dew = 1 / ((1/273.15)-(Rv/lv)*Math.log(e/611));
     
