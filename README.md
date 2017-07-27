@@ -18,6 +18,4 @@ Notes for Future Development:
 
 ~Allow users to copy radiosonde data and have website plot a Skew-T (use Canvas for scatterplot)
 
-~Make equations more accurate by accounting for the change in the latent heat of vaporization with temperature
-
 ~Include vapor pressure as a moisture measurement on the thermodyanmics page
