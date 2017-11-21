@@ -100,7 +100,7 @@ function RHtoDewK(T, RH) {
     return Td;
 }
 
-function MixToTd(mix, P) {
+function MixToTd(mix, P, T) {
     /*
     Returns the dew point given the mixing ratio and pressure. Vapor pressure is
     calculated using equation 5.14 in Bohren's "Atmospheric Thermodynamics".
@@ -195,7 +195,7 @@ function thermo() {
         mois = RHtoDewK(temp, mois);
     }
     else if (MUnitIn === "w") {
-        mois = MixToTd(mois / 1000.0, prs);
+        mois = MixToTd(mois / 1000.0, prs, temp);
     }
     
     // Define Local Variables
